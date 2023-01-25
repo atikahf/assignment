@@ -1,0 +1,21 @@
+<form class="d-flex" role="search">
+    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-success" type="submit">Search</button>
+    <button class="btn btn-outline-secondary" type="submit">Clear</button>
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Webpage</th>
+            <th>Domain</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let u of result">
+            <td>{{u.name}}</td>
+            <td><a href="{{u.web_pages}}">{{u.web_pages}}</a></td>
+            <td>{{u.domains}}</td>
+        </tr>
+    </tbody>
+</table>

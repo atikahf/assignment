@@ -1,0 +1,16 @@
+<nav class="navbar navbar-expand-lg bg-primary">
+  <div class="container-fluid">
+    <a class="navbar-brand text-white" href="#">List of Universities in United States</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav ms-auto">
+        <a class="nav-link text-white" [ngClass]="{'active': page == 'home'}" aria-current="page" (click)="navigate('home')">Home</a>
+        <a class="nav-link text-white" [ngClass]="{'active': page == 'about-me'}" aria-current="page" (click)="navigate('about-me')">About Me</a>
+      </div>
+    </div>
+  </div>
+</nav>
+<app-home *ngIf="page==='home'"></app-home>
+<app-about-me *ngIf="page==='about-me'"></app-about-me>

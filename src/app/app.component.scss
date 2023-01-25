@@ -1,0 +1,11 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+
+.navlink{
+    color: white !important;
+}
+.nav-link:hover{
+    background-color: #223e9a;
+}
+.nav-link.active{
+    background-color: #2b4ec0;
+}
