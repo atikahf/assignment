@@ -1,6 +1,7 @@
-<nav class="navbar navbar-expand-lg bg-primary">
+<!-- Simple Navbar -->
+<nav class="navbar navbar-expand-lg bg-primary" style="height: 60px;background-color: #13296d;">
   <div class="container-fluid">
-    <a class="navbar-brand text-white" href="#">List of Universities in United States</a>
+    <h4 class="navbar-brand text-white" href="#">List of Universities in United States</h4>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -12,5 +13,7 @@
     </div>
   </div>
 </nav>
+<!-- Datatable List of Universities-->
 <app-home *ngIf="page==='home'"></app-home>
+<!-- About Me profile -->
 <app-about-me *ngIf="page==='about-me'"></app-about-me>

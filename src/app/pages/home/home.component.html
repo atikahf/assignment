@@ -1,21 +1,37 @@
-<form class="d-flex" role="search">
-    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-    <button class="btn btn-outline-success" type="submit">Search</button>
-    <button class="btn btn-outline-secondary" type="submit">Clear</button>
-</form>
+<!-- Search Input -->
+<div class="form-group" style="padding-top: 20px;padding-bottom: 20px;">
+    <input class="form-control me-2" [(ngModel)]="filter" (keyup)="filtering()" type="search" placeholder="Search" aria-label="Search">
+    <!-- <button class="btn btn-outline-secondary" (click)="clear()">Clear</button> -->
+</div>
+<!-- Datatable List of University in United State -->
 <table class="table">
+    <!-- Table Header -->
     <thead>
         <tr>
-            <th>Name</th>
+            <th style="width: 30%;">Name</th>
             <th>Webpage</th>
-            <th>Domain</th>
+            <th style="width: 20%;">Domain</th>
         </tr>
     </thead>
+    <!-- Table Body -->
     <tbody>
-        <tr *ngFor="let u of result">
+        <tr *ngFor="let u of result_filter | paginate: { itemsPerPage: pageSize, currentPage: p }">
             <td>{{u.name}}</td>
-            <td><a href="{{u.web_pages}}">{{u.web_pages}}</a></td>
+            <td><a href="{{u.web_pages}}">{{ filterWebPage(u.web_pages[0])}}</a></td>
             <td>{{u.domains}}</td>
         </tr>
     </tbody>
 </table>
+<!-- Pagination -->
+<div class="input-group mb-3 d-flex justify-content-end">
+    <!-- Page size / Item per page -->
+    <select class="custom-select" [(ngModel)]="pageSize" (ngModelChange)="onPageSizeSelected($event)">
+      <option *ngFor="let size of pageSizeList" [attr.selected]="size == pageSize? true : null">{{displaySize(size)}}</option>
+    </select>
+    <!-- Pagination Control -->
+<pagination-controls (pageChange)="page($event)" class="float-right"></pagination-controls>
+
+  </div>
+  <!-- Datatable Loader -->
+  <!-- Need to add since data slow to return from API -->
+<app-loader *ngIf="loader"></app-loader>
